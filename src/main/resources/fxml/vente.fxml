@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.VenteController">
+    
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+    
+    <children>
+        <!-- Barre d'en-tête -->
+        <HBox spacing="10.0">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <children>
+                <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Historique des ventes" />
+                <Button fx:id="btnActualiser" 
+                       onAction="#handleActualiser" 
+                       style="-fx-background-color: #607D8B; -fx-text-fill: white;" 
+                       text="Actualiser" />
+            </children>
+        </HBox>
+
+        <!-- Table des ventes -->
+        <TableView fx:id="tableVentes" VBox.vgrow="ALWAYS" style="-fx-background-color: white;">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="50.0" text="ID" />
+                <TableColumn fx:id="colDate" prefWidth="150.0" text="Date" />
+                <TableColumn fx:id="colTotal" prefWidth="150.0" text="Montant Total (DH)" />
+                <TableColumn fx:id="colStatut" prefWidth="120.0" text="Statut" />
+                <TableColumn fx:id="colIdClient" prefWidth="100.0" text="ID Client" />
+                <TableColumn fx:id="colIdPharmacien" prefWidth="120.0" text="ID Pharmacien" />
+            </columns>
+        </TableView>
+
+        <!-- Barre de boutons -->
+        <HBox spacing="10.0">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <children>
+                <!-- ⭐ AJOUT fx:id aux boutons à masquer -->
+                <Button fx:id="btnNouvelle"
+                       onAction="#handleNouvelleVente" 
+                       prefWidth="130.0" 
+                       style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px;" 
+                       text="Nouvelle Vente" />
+                
+                <Button onAction="#handleDetails" 
+                       prefWidth="110.0" 
+                       style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 14px;" 
+                       text="Voir Détails" />
+                
+                <Button fx:id="btnValider"
+                       onAction="#handleValider" 
+                       prefWidth="90.0" 
+                       style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-font-size: 14px;" 
+                       text="Valider" />
+                
+                <Button fx:id="btnRefuser"
+                       onAction="#handleRefuser" 
+                       prefWidth="90.0" 
+                       style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-font-size: 14px;" 
+                       text="Refuser" />
+                
+                <Button fx:id="btnSupprimer"
+                       onAction="#handleSupprimer" 
+                       prefWidth="100.0" 
+                       style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-font-size: 14px;" 
+                       text="Supprimer" />
+            </children>
+        </HBox>
+    </children>
+</VBox>

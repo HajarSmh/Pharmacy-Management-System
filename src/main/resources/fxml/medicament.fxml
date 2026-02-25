@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.MedicamentController"
+      spacing="10"
+      style="-fx-background-color: #f5f5f5;">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+
+    <Label text="Gestion des Médicaments"
+           style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2196F3;"/>
+
+  
+    <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 5;">
+        <Label text="Formulaire Médicament" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+        <GridPane hgap="10" vgap="10">
+            <Label text="Nom :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtNom" promptText="Nom du médicament"
+                      GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="200"/>
+
+            <Label text="Prix (DH) :" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+            <TextField fx:id="txtPrix" promptText="0.00"
+                      GridPane.rowIndex="0" GridPane.columnIndex="3" prefWidth="150"/>
+
+            <Label text="Stock :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtStock" promptText="Quantité"
+                      GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="200"/>
+
+            <Label text="Date Expiration :" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+            <DatePicker fx:id="dateExpiration"
+                       GridPane.rowIndex="1" GridPane.columnIndex="3" prefWidth="150"/>
+
+            <Label text="Fournisseur :" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtFournisseur" promptText="Nom du fournisseur"
+                      GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="200"/>
+
+            <CheckBox fx:id="checkPrescription" text="Prescription requise"
+                     GridPane.rowIndex="2" GridPane.columnIndex="2" GridPane.columnSpan="2"/>
+        </GridPane>
+
+        <!-- Boutons MODIFIÉS -->
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button text="Ajouter" onAction="#handleAjouter"
+                   style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 13px;"
+                   prefWidth="100"/>
+            <Button text="Modifier" onAction="#handleModifier"
+                   style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 13px;"
+                   prefWidth="100"/>
+            <Button text="Désactiver" onAction="#handleSupprimer"
+                   style="-fx-background-color: #ff9800; -fx-text-fill: white; -fx-font-size: 13px;"
+                   prefWidth="100"/>
+            <Button text="Réactiver" onAction="#handleReactiver"
+                   style="-fx-background-color: #8BC34A; -fx-text-fill: white; -fx-font-size: 13px;"
+                   prefWidth="100"/>
+            <Button text="Actualiser" onAction="#handleActualiser"
+                   style="-fx-background-color: #607D8B; -fx-text-fill: white; -fx-font-size: 13px;"
+                   prefWidth="100"/>
+          
+            <Region HBox.hgrow="ALWAYS"/>
+            
+            
+            <CheckBox fx:id="checkAfficherInactifs" 
+                     text="Afficher les désactivés"
+                     onAction="#handleAfficherInactifs"
+                     style="-fx-font-size: 13px;"/>
+        </HBox>
+    </VBox>
+
+    <TableView fx:id="tableMedicaments" VBox.vgrow="ALWAYS" onMouseClicked="#handleSelectionner">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="colNom" text="Nom" prefWidth="150"/>
+            <TableColumn fx:id="colPrix" text="Prix (DH)" prefWidth="100"/>
+            <TableColumn fx:id="colStock" text="Stock" prefWidth="80"/>
+            <TableColumn fx:id="colExpiration" text="Expiration" prefWidth="120"/>
+            <TableColumn fx:id="colPrescription" text="Prescription" prefWidth="100"/>
+            <TableColumn fx:id="colFournisseur" text="Fournisseur" prefWidth="150"/>
+        </columns>
+    </TableView>
+
+</VBox>

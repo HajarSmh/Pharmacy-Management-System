@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="mainPane"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.MainController"
+            prefWidth="1200" prefHeight="700">
+
+    <top>
+        <HBox style="-fx-background-color: #2196F3; -fx-padding: 15;"
+              alignment="CENTER_LEFT"
+              spacing="20">
+            
+            <Label text="Pharmacy Management System"
+                   style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+            
+            <Region HBox.hgrow="ALWAYS"/>
+            
+            <Label fx:id="lblWelcome"
+                   style="-fx-text-fill: white; -fx-font-size: 14px;"/>
+            
+            <Button text="Déconnexion"
+                    onAction="#handleDeconnexion"
+                    style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox style="-fx-background-color: #263238; -fx-padding: 20;"
+              spacing="10"
+              prefWidth="200">
+
+            <VBox fx:id="menuClient" spacing="10">
+                <Label text="CLIENT"
+                       style="-fx-text-fill: #90CAF9; -fx-font-size: 16px; -fx-font-weight: bold;"/>
+                
+                <Separator style="-fx-background-color: #455A64;"/>
+                
+                <Button text="Catalogue"
+                        onAction="#handleCatalogue"
+                        prefWidth="160"
+                        style="-fx-background-color: #37474F; -fx-text-fill: white; -fx-alignment: CENTER_LEFT;"/>
+                
+                <Button text="Mon Panier"
+                        onAction="#handlePanier"
+                        prefWidth="160"
+                        style="-fx-background-color: #37474F; -fx-text-fill: white; -fx-alignment: CENTER_LEFT;"/>
+                
+                <Button text="Mes Commandes"
+                        onAction="#handleMesCommandes"
+                        prefWidth="160"
+                        style="-fx-background-color: #37474F; -fx-text-fill: white; -fx-alignment: CENTER_LEFT;"/>
+            </VBox>
+
+            <VBox fx:id="menuPharmacien" spacing="10">
+                <Label text="PHARMACIEN"
+                       style="-fx-text-fill: #90CAF9; -fx-font-size: 16px; -fx-font-weight: bold;"/>
+                
+                <Separator style="-fx-background-color: #455A64;"/>
+                
+                <Button text="Médicaments"
+                        onAction="#handleMedicaments"
+                        prefWidth="160"
+                        style="-fx-background-color: #37474F; -fx-text-fill: white; -fx-alignment: CENTER_LEFT;"/>
+                
+                <Button text="Clients"
+                        onAction="#handleClients"
+                        prefWidth="160"
+                        style="-fx-background-color: #37474F; -fx-text-fill: white; -fx-alignment: CENTER_LEFT;"/>
+                
+                <Button text="Pharmaciens"
+                        onAction="#handlePharmaciens"
+                        prefWidth="160"
+                        style="-fx-background-color: #37474F; -fx-text-fill: white; -fx-alignment: CENTER_LEFT;"/>
+                
+                <Button text="Ventes"
+                        onAction="#handleVentes"
+                        prefWidth="160"
+                        style="-fx-background-color: #37474F; -fx-text-fill: white; -fx-alignment: CENTER_LEFT;"/>
+            </VBox>
+            
+        </VBox>
+    </left>
+
+    <center>
+        <VBox alignment="CENTER"
+              style="-fx-background-color: #f5f5f5;">
+            <Label text="Sélectionnez une option dans le menu"
+                   style="-fx-font-size: 18px; -fx-text-fill: #757575;"/>
+        </VBox>
+    </center>
+    
+</BorderPane>
